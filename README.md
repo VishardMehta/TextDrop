@@ -2,7 +2,7 @@
 
 Effortless text and snippet sharing.
 
-![App Screenshot](Screenshot 2025-08-15 at 02.53.26.png)
+![App Screenshot](demorelayimage.png)
 ---
 
 ## About
