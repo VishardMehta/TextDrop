@@ -2,8 +2,7 @@
 
 Effortless text and snippet sharing.
 
-> **Note:** Replace `./path-to-your-image.png` with an actual screenshot of your app
-
+![App Screenshot](Screenshot 2025-08-15 at 02.53.26.png)
 ---
 
 ## About
