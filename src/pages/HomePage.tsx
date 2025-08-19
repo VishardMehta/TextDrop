@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { TextDisplay } from '../components/TextDisplay';
 import { ShareModal } from '../components/ShareModal';
 import { shareText } from '../services/api';
-
+import image from "../../public/a284f6be7a5f6e83360e2545e8d3c590.gif"; // Adjust the path as necessary
 export const HomePage: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -27,7 +27,7 @@ export const HomePage: React.FC = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: 'url(/public/a284f6be7a5f6e83360e2545e8d3c590.gif)',
+          backgroundImage: `url(${image})`,
         }}
       >
         {/* Overlay for better text readability */}
