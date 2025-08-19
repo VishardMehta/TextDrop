@@ -121,7 +121,7 @@ export const TextPage: React.FC = () => {
 
       {/* Navigation */}
       {/* Main Content */}
-      <div className="relative z-10 min-h-screen flex items-center justify-center -mt-20">
+      <div className="relative z-10 min-h-screen flex items-center justify-center py-8">
         <TextDisplay 
           text={text}
           onOpenModal={() => setIsModalOpen(true)}
