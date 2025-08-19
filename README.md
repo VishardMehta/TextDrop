@@ -1,4 +1,4 @@
-# Relay
+# Texty
 
 Effortless text and snippet sharing.
 
@@ -7,7 +7,7 @@ Effortless text and snippet sharing.
 
 ## About
 
-Relay is a minimal and fast web application for instantly sharing text, notes, and code snippets. Paste your content, generate a unique link and QR code, and share it with anyone, anywhere.
+Texty is a minimal and fast web application for instantly sharing text, notes, and code snippets. Paste your content, generate a unique link and QR code, and share it with anyone, anywhere.
 
 ---
 
