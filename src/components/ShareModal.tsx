@@ -116,7 +116,7 @@ export const ShareModal: React.FC<ShareModalProps> = ({ isOpen, onClose, onShare
             </div>
 
             {showQR && (
-              <div className="mt-6 flex justify-center items-center">
+              <div className="mt-6 flex justify-center">
                 <QRCodeGenerator url={shareUrl} />
               </div>
             )}
