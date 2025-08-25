@@ -4,6 +4,7 @@ import { TextDisplay } from '../components/TextDisplay';
 import { ShareModal } from '../components/ShareModal';
 import { getText, shareText } from '../services/api';
 import { ArrowLeft, AlertCircle } from 'lucide-react';
+import image from "../../public/a284f6be7a5f6e83360e2545e8d3c590.gif";
 
 export const TextPage: React.FC = () => {
   const { shortKey } = useParams<{ shortKey: string }>();
@@ -59,7 +60,7 @@ export const TextPage: React.FC = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: 'url(/public/a284f6be7a5f6e83360e2545e8d3c590.gif)',
+            backgroundImage: `url(${image})`,
           }}
         >
           <div className="absolute inset-0 bg-black/40" />
