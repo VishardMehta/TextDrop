@@ -83,7 +83,7 @@ export const TextPage: React.FC = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: 'url(${image})',
+            backgroundImage:`url(${image})`,
           }}
         >
           <div className="absolute inset-0 bg-black/40" />
@@ -114,7 +114,7 @@ export const TextPage: React.FC = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: 'url(${image})',
+          backgroundImage:`url(${image})`,
         }}
       >
         <div className="absolute inset-0 bg-black/40" />
