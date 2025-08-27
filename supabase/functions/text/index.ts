@@ -44,7 +44,7 @@ Deno.serve(async (req) => {
     // Retrieve the text
     const { data, error } = await supabase
       .from('shared_texts')
-      .select('content, created_at')
+      .select('content, created_at, is_file, file_name, file_size, content_type')
       .eq('short_key', shortKey)
       .single();
 
@@ -62,6 +62,10 @@ Deno.serve(async (req) => {
       JSON.stringify({
         text: data.content,
         createdAt: data.created_at,
+        isFile: data.is_file || false,
+        fileName: data.file_name,
+        fileSize: data.file_size,
+        contentType: data.content_type,
       }),
       {
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },

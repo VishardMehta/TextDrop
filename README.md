@@ -1,4 +1,4 @@
-# Texty
+# TextDrop
 
 Effortless text and snippet sharing.
 
@@ -7,13 +7,15 @@ Effortless text and snippet sharing.
 
 ## About
 
-Texty is a minimal and fast web application for instantly sharing text, notes, and code snippets. Paste your content, generate a unique link and QR code, and share it with anyone, anywhere.
+TextDrop is a minimal and fast web application for instantly sharing text, notes, code snippets, and files. Paste your content or upload files, generate a unique link and QR code, and share it with anyone, anywhere.
 
 ---
 
 ## Features
 
 - **Instant Link Generation:** Get a shareable link in seconds.  
+- **File Sharing:** Upload and share files up to 10MB with progress tracking.
+- **Quick Search:** Find shared content using 6-digit codes without full URLs.
 - **QR Code Support:** Quickly share to mobile devices with a scannable QR code.  
 - **Clean & Minimalist UI:** A distraction-free interface built for speed.  
 - **Copy to Clipboard:** Easily copy the generated link with a single click.
@@ -37,8 +39,8 @@ To run this project on your own machine:
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/your-username/Textly.git
-    cd Textly
+    git clone https://github.com/your-username/TextDrop.git
+    cd TextDrop
     ```
 
 2. **Install dependencies:**

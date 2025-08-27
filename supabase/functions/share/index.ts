@@ -8,6 +8,11 @@ const corsHeaders = {
 
 interface ShareRequest {
   text: string;
+  content?: string;
+  isFile?: boolean;
+  fileName?: string;
+  fileSize?: number;
+  contentType?: string;
 }
 
 const generateShortKey = (): string => {
@@ -41,10 +46,35 @@ Deno.serve(async (req) => {
     }
 
     const { text }: ShareRequest = await req.json();
+    const requestData: ShareRequest = await req.json();
+    const { text, content, isFile = false, fileName, fileSize, contentType } = requestData;
 
-    if (!text || text.trim().length === 0) {
+    // Validate input based on whether it's a file or text
+    if (isFile) {
+      if (!content || !fileName) {
+        return new Response(
+          JSON.stringify({ error: 'File content and name are required' }),
+          { 
+            status: 400, 
+            headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+          }
+        );
+      }
+    } else {
+      if (!text || text.trim().length === 0) {
+        return new Response(
+          JSON.stringify({ error: 'Text is required' }),
+          { 
+            status: 400, 
+            headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+          }
+        );
+      }
+    }
+
+    if (!text && !content) {
       return new Response(
-        JSON.stringify({ error: 'Text is required' }),
+        JSON.stringify({ error: 'Content is required' }),
         { 
           status: 400, 
           headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
@@ -80,12 +110,21 @@ Deno.serve(async (req) => {
     }
 
     // Store the text
+    const insertData: any = {
+      short_key: shortKey,
+      content: isFile ? content : text?.trim(),
+      is_file: isFile,
+    };
+
+    if (isFile) {
+      insertData.file_name = fileName;
+      insertData.file_size = fileSize;
+      insertData.content_type = contentType;
+    }
+
     const { error: insertError } = await supabase
       .from('shared_texts')
-      .insert({
-        short_key: shortKey,
-        content: text.trim(),
-      });
+      .insert(insertData);
 
     if (insertError) {
       console.error('Database insert error:', insertError);
