@@ -178,7 +178,7 @@ export const TextPage: React.FC = () => {
           <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl max-w-2xl w-full mx-4 p-8">
             <div className="text-center text-white">
               <Download className="w-16 h-16 mx-auto mb-6 text-blue-300" />
-              <h2 className="text-2xl font-bold mb-4 retro-font">Shared File</h2>
+              <h2 className="text-2xl font-bold mb-4 retro-font">Shared Content</h2>
               <div className="bg-white/10 border border-white/20 rounded-xl p-6 mb-6">
                 <p className="text-lg font-semibold mb-2 break-all">{contentData.fileName}</p>
                 <p className="text-white/70 text-sm">
@@ -198,7 +198,7 @@ export const TextPage: React.FC = () => {
                   className="py-3 px-6 bg-white/10 border border-white/20 text-white rounded-xl hover:bg-white/20 transition-all duration-300 transform hover:scale-105 retro-font flex items-center gap-2 min-w-[140px] justify-center"
                 >
                   <ArrowLeft className="w-4 h-4" />
-                  Share New
+                  Share New Content
                 </button>
               </div>
             </div>

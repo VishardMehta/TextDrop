@@ -94,7 +94,7 @@ export const FileShareModal: React.FC<FileShareModalProps> = ({ isOpen, onClose,
 
         {!shareUrl ? (
           <div>
-            <h2 className="text-2xl font-bold text-white mb-6 retro-font text-center">Share Your File</h2>
+            <h2 className="text-2xl font-bold text-white mb-6 retro-font text-center">Share Your Content</h2>
             <FileUpload
               onFileSelect={handleFileSelect}
               onUpload={handleUpload}
@@ -106,7 +106,7 @@ export const FileShareModal: React.FC<FileShareModalProps> = ({ isOpen, onClose,
           </div>
         ) : (
           <div>
-            <h2 className="text-2xl font-bold text-white mb-6 retro-font text-center">File Shared!</h2>
+            <h2 className="text-2xl font-bold text-white mb-6 retro-font text-center">Content Shared!</h2>
             <div className="bg-white/10 border border-white/20 rounded-xl p-4 mb-4">
               <div className="flex items-center justify-center">
                 <span className="text-white font-mono text-sm break-all mr-2">
