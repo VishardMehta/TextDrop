@@ -15,14 +15,14 @@ export const SearchBar: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSearch} className="w-full max-w-md mx-auto mb-8">
+    <form onSubmit={handleSearch} className="w-full max-w-md mx-auto mb-8 flex justify-center">
       <div className="relative">
         <input
           type="text"
           value={searchKey}
           onChange={(e) => setSearchKey(e.target.value.replace(/[^a-zA-Z0-9]/g, '').slice(0, 6))}
-          placeholder="Enter 6-digit code..."
-          className="w-full py-3 px-4 pr-12 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all retro-font text-center"
+          placeholder="Enter 6-digit code to find content..."
+          className="w-full py-3 px-4 pr-12 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all retro-font text-center"
           maxLength={6}
         />
         <button

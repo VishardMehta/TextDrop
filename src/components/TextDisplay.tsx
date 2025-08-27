@@ -59,12 +59,12 @@ export const TextDisplay: React.FC<TextDisplayProps> = ({
         </div>
       ) : (
         <div 
-          className="text-center text-white"
+          className="text-center text-white flex flex-col items-center justify-center"
         >
           <Share2 className="w-16 h-16 mx-auto mb-6 opacity-70" />
-          <h1 className="text-3xl font-bold mb-4 retro-font">Share Your Text !</h1>
+          <h1 className="text-3xl font-bold mb-4 retro-font">Share Your Content!</h1>
           <p className="text-sm opacity-70 retro-font">
-            Generate unique URLs for your text content
+            Generate unique URLs for your text and file content
           </p>
           <div className="flex flex-col gap-4 mt-8">
             <button
