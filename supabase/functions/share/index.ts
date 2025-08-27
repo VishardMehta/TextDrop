@@ -45,7 +45,6 @@ Deno.serve(async (req) => {
       );
     }
 
-    const { text }: ShareRequest = await req.json();
     const requestData: ShareRequest = await req.json();
     const { text, content, isFile = false, fileName, fileSize, contentType } = requestData;
 
