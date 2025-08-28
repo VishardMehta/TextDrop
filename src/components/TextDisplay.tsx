@@ -20,7 +20,7 @@ export const TextDisplay: React.FC<TextDisplayProps> = ({
 }) => {
   return (
     <div className={`bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl transition-all duration-300 ${
-      text ? 'max-w-4xl w-full mx-4 p-6' : 'max-w-2xl w-full mx-4 p-8 hover:bg-white/15 hover:scale-105 hover:shadow-2xl cursor-pointer'
+      text ? 'max-w-4xl w-full p-6' : 'max-w-2xl w-full p-8 hover:bg-white/15 hover:scale-105 hover:shadow-2xl cursor-pointer'
     }`}>
       {text ? (
         <div className="text-white">

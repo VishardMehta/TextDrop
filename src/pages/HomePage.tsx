@@ -44,7 +44,7 @@ export const HomePage: React.FC = () => {
 
       {/* Main Content */}
       <div className="relative z-10 min-h-screen flex items-center justify-center">
-        <div className="w-full max-w-4xl mx-4 px-4">
+        <div className="w-full max-w-4xl mx-4 px-4 flex flex-col items-center">
           <SearchBar />
           <TextDisplay 
             text=""
