@@ -59,17 +59,17 @@ export const TextDisplay: React.FC<TextDisplayProps> = ({
         </div>
       ) : (
         <div 
-          className="text-center text-white flex flex-col items-center justify-center"
+          className="text-center text-white"
         >
           <Share2 className="w-16 h-16 mx-auto mb-6 opacity-70" />
           <h1 className="text-3xl font-bold mb-4 retro-font">Share Your Content!</h1>
-          <p className="text-sm opacity-70 retro-font">
+          <p className="text-lg opacity-90 mb-8">
             Generate unique URLs for your text and file content
           </p>
-          <div className="flex flex-col gap-4 mt-8">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <button
               onClick={onOpenModal}
-              className="py-3 px-6 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-xl hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 retro-font flex items-center gap-2 justify-center"
+              className="py-3 px-6 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-xl hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 retro-font flex items-center gap-2 justify-center w-full sm:w-auto"
             >
               <Share2 className="w-4 h-4" />
               Share Text
@@ -77,7 +77,7 @@ export const TextDisplay: React.FC<TextDisplayProps> = ({
             {onOpenFileModal && (
               <button
                 onClick={onOpenFileModal}
-                className="py-3 px-6 bg-white/10 border border-white/20 text-white rounded-xl hover:bg-white/20 transition-all duration-300 transform hover:scale-105 retro-font flex items-center gap-2 justify-center"
+                className="py-3 px-6 bg-white/10 border border-white/20 text-white rounded-xl hover:bg-white/20 transition-all duration-300 transform hover:scale-105 retro-font flex items-center gap-2 justify-center w-full sm:w-auto"
               >
                 <Upload className="w-4 h-4" />
                 Share File
