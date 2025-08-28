@@ -2,7 +2,7 @@
 
 Effortless text and snippet sharing.
 
-![App Screenshot](Display image for the website.png)
+[![App Screenshot](Displayimage.png)](https://textdrop.vercel.app)
 ---
 
 ## About
