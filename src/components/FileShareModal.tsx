@@ -1,32 +1,59 @@
 import React, { useState } from 'react';
 import { X, Copy, Check, QrCode, ExternalLink } from 'lucide-react';
 import { QRCodeGenerator } from './QRCodeGenerator';
+import { FileUpload } from './FileUpload';
 
-interface ShareModalProps {
+interface FileShareModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onShare: (text: string) => Promise<string>;
+  onShare: (file: File) => Promise<string>;
 }
 
-export const ShareModal: React.FC<ShareModalProps> = ({ isOpen, onClose, onShare }) => {
-  const [text, setText] = useState('');
+export const FileShareModal: React.FC<FileShareModalProps> = ({ isOpen, onClose, onShare }) => {
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [shareUrl, setShareUrl] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
+  const [isUploading, setIsUploading] = useState(false);
+  const [uploadProgress, setUploadProgress] = useState(0);
   const [copied, setCopied] = useState(false);
   const [showQR, setShowQR] = useState(false);
 
-  const handleShare = async () => {
-    if (!text.trim()) return;
+  const handleFileSelect = (file: File) => {
+    setSelectedFile(file);
+  };
+
+  const handleUpload = async () => {
+    if (!selectedFile) return;
     
-    setIsLoading(true);
+    setIsUploading(true);
+    setUploadProgress(0);
+
+    // Simulate upload progress
+    const progressInterval = setInterval(() => {
+      setUploadProgress(prev => {
+        if (prev >= 90) {
+          clearInterval(progressInterval);
+          return 90;
+        }
+        return prev + 10;
+      });
+    }, 200);
+
     try {
-      const url = await onShare(text);
+      const url = await onShare(selectedFile);
+      setUploadProgress(100);
       setShareUrl(url);
+      clearInterval(progressInterval);
     } catch (error) {
-      console.error('Error sharing text:', error);
+      console.error('Error sharing file:', error);
+      clearInterval(progressInterval);
     } finally {
-      setIsLoading(false);
+      setIsUploading(false);
     }
+  };
+
+  const handleCancel = () => {
+    setSelectedFile(null);
+    setUploadProgress(0);
   };
 
   const handleCopy = async () => {
@@ -40,10 +67,12 @@ export const ShareModal: React.FC<ShareModalProps> = ({ isOpen, onClose, onShare
   };
 
   const handleClose = () => {
-    setText('');
+    setSelectedFile(null);
     setShareUrl('');
     setShowQR(false);
     setCopied(false);
+    setUploadProgress(0);
+    setIsUploading(false);
     onClose();
   };
 
@@ -66,20 +95,14 @@ export const ShareModal: React.FC<ShareModalProps> = ({ isOpen, onClose, onShare
         {!shareUrl ? (
           <div>
             <h2 className="text-2xl font-bold text-white mb-6 retro-font text-center">Share Your Content</h2>
-            <textarea
-              value={text}
-              onChange={(e) => setText(e.target.value)}
-              placeholder="Type or paste your text here..."
-              className="w-full h-40 p-4 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/50 resize-none focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all"
-              autoFocus
+            <FileUpload
+              onFileSelect={handleFileSelect}
+              onUpload={handleUpload}
+              onCancel={handleCancel}
+              selectedFile={selectedFile}
+              isUploading={isUploading}
+              uploadProgress={uploadProgress}
             />
-            <button
-              onClick={handleShare}
-              disabled={!text.trim() || isLoading}
-              className="w-full mt-6 py-3 px-6 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-xl hover:from-blue-600 hover:to-purple-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 transform hover:scale-105 retro-font"
-            >
-              {isLoading ? 'Generating Link...' : 'Generate Link'}
-            </button>
           </div>
         ) : (
           <div>
