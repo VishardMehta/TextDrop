@@ -2,7 +2,7 @@
 
 Effortless text and snippet sharing.
 
-![App Screenshot](demorelayimage.png)
+![App Screenshot](Display image for the website.png)
 ---
 
 ## About
