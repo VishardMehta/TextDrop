@@ -37,7 +37,8 @@ export const shareText = async (text: string): Promise<string> => {
   });
 
   if (!response.ok) {
-    throw new Error('Failed to share text');
+    const errorData = await response.json().catch(() => ({}));
+    throw new Error(errorData.error || 'Failed to share text');
   }
 
   const data: ShareResponse = await response.json();
@@ -76,7 +77,8 @@ export const shareFile = async (file: File): Promise<string> => {
   });
 
   if (!response.ok) {
-    throw new Error('Failed to share file');
+    const errorData = await response.json().catch(() => ({}));
+    throw new Error(errorData.error || 'Failed to share file');
   }
 
   const data: ShareResponse = await response.json();

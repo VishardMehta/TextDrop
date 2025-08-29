@@ -46,7 +46,11 @@ Deno.serve(async (req) => {
     }
 
     const requestData: ShareRequest = await req.json();
-    const { text, content, isFile = false, fileName, fileSize, contentType } = requestData;
+    
+    // Handle both old format (text) and new format (content + isFile)
+    const isFile = requestData.isFile || false;
+    const content = isFile ? requestData.content : (requestData.text || requestData.content);
+    const { fileName, fileSize, contentType } = requestData;
 
     // Validate input based on whether it's a file or text
     if (isFile) {
@@ -60,7 +64,7 @@ Deno.serve(async (req) => {
         );
       }
     } else {
-      if (!text || text.trim().length === 0) {
+      if (!content || content.trim().length === 0) {
         return new Response(
           JSON.stringify({ error: 'Text is required' }),
           { 
@@ -71,7 +75,7 @@ Deno.serve(async (req) => {
       }
     }
 
-    if (!text && !content) {
+    if (!content) {
       return new Response(
         JSON.stringify({ error: 'Content is required' }),
         { 
@@ -111,7 +115,7 @@ Deno.serve(async (req) => {
     // Store the text
     const insertData: any = {
       short_key: shortKey,
-      content: isFile ? content : text?.trim(),
+      content: content.trim(),
       is_file: isFile,
     };
 
