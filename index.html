@@ -2,26 +2,39 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="google-site-verification" content="Vwbjl5NxsUgXHsgXnYAI6vKFZtZdn8eGezoSS8H2vms" />
     
     <!-- SEO Meta Tags -->
     <title>TextDrop — Share Text Instantly</title>
     <meta name="description" content="Share text instantly across devices with unique links and QR codes. Free, fast, no login.">
+    <meta name="application-name" content="TextDrop">
+    <meta name="apple-mobile-web-app-title" content="TextDrop">
     <link rel="canonical" href="https://textdrop.vercel.app/">
     <meta name="robots" content="index, follow">
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="TextDrop">
     <meta property="og:url" content="https://textdrop.vercel.app/">
     <meta property="og:title" content="TextDrop — Share Text Instantly">
     <meta property="og:description" content="Share text instantly across devices with unique links and QR codes.">
+    <meta property="og:image" content="https://textdrop.vercel.app/og-image.png">
     
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@TextDrop">
     <meta name="twitter:title" content="TextDrop — Share Text Instantly">
     <meta name="twitter:description" content="Share text instantly across devices with unique links and QR codes.">
+    <meta name="twitter:image" content="https://textdrop.vercel.app/og-image.png">
+    
+    <!-- Additional Branding -->
+    <meta name="theme-color" content="#3b82f6">
+    <meta name="msapplication-TileColor" content="#3b82f6">
+    <meta name="msapplication-config" content="/browserconfig.xml">
+    <link rel="manifest" href="/manifest.json">
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -29,10 +42,20 @@
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
       "name": "TextDrop",
+      "alternateName": "TextDrop - Share Text Instantly",
       "applicationCategory": "WebApplication",
       "url": "https://textdrop.vercel.app/",
       "operatingSystem": "Any",
-      "description": "Share text instantly across devices with links and QR codes."
+      "description": "Share text instantly across devices with links and QR codes.",
+      "author": {
+        "@type": "Organization",
+        "name": "TextDrop"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
     }
     </script>
   </head>
